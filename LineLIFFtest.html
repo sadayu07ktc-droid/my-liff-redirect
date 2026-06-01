@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กำลังยืนยันตัวตน...</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
+        <h2>กำลังเข้าสู่ระบบความปลอดภัย...</h2>
+        <p>กรุณารอสักครู่ ระบบกำลังนำคุณไปยังหน้าหลัก</p>
+    </div>
+
+    <script>
+        async function main() {
+            // 2. ตั้งค่าเริ่มต้นใช้งาน LIFF (เปลี่ยนไอดีตรงนี้)
+            await liff.init({ liffId: "2010238040-Xwy9U5SD" }); 
+
+            // 3. เช็กว่าผู้ใช้เข้าสู่ระบบหรือยัง ถ้ายังให้บังคับล็อกอินก่อน
+            if (!liff.isLoggedIn()) {
+                liff.login();
+            } else {
+                try {
+                    // 4. ดึงโปรไฟล์ของผู้ใช้เพื่อเอา UID
+                    const profile = await liff.getProfile();
+                    const userId = profile.userId;
+
+                    // 5. เมื่อได้ UID แล้ว ให้กระโดดข้ามหน้าไปหา GAS ทันทีพร้อมส่ง UID ไปด้วย
+                    const gasWebAppUrl = "ใส่_URL_ของ_GAS_WEB_APP_ตรงนี้";
+                    window.location.href = gasWebAppUrl + "https://script.google.com/macros/s/AKfycbzeeYFuyz9cb8djQGXeDc3I8QgIqHVObRaRYTa2IxpXaU1wJ-uMVh9_McCUe1eVqBhlKg/exec?uid=" + userId;
+
+                } catch (err) {
+                    console.error("เกิดข้อผิดพลาดในการดึง Profile:", err);
+                    alert("ไม่สามารถดึงข้อมูลพิกัดผู้ใช้ได้ กรุณาลองใหม่อีกครั้ง");
+                }
+            }
+        }
+        main();
+    </script>
+</body>
+</html>
