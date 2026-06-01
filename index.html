@@ -27,8 +27,8 @@
                     const userId = profile.userId;
 
                     // 5. เมื่อได้ UID แล้ว ให้กระโดดข้ามหน้าไปหา GAS ทันทีพร้อมส่ง UID ไปด้วย
-                    const gasWebAppUrl = "ใส่_URL_ของ_GAS_WEB_APP_ตรงนี้";
-                    window.location.href = gasWebAppUrl + "https://script.google.com/macros/s/AKfycbzeeYFuyz9cb8djQGXeDc3I8QgIqHVObRaRYTa2IxpXaU1wJ-uMVh9_McCUe1eVqBhlKg/exec?uid=" + userId;
+                    const gasWebAppUrl = "https://script.google.com/macros/s/AKfycbzeeYFuyz9cb8djQGXeDc3I8QgIqHVObRaRYTa2IxpXaU1wJ-uMVh9_McCUe1eVqBhlKg/exec";
+                    window.location.href = gasWebAppUrl + "?uid=" + userId;
 
                 } catch (err) {
                     console.error("เกิดข้อผิดพลาดในการดึง Profile:", err);
