@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>กำลังยืนยันตัวตน...</title>
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="https://sadayu07ktc-droid.github.io/SSB-SMART-SUPPLY-DASHBOARD/ssb-ui.js?v=20261008i"></script>
 </head>
 <body>
     <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
@@ -32,7 +33,7 @@
 
                 } catch (err) {
                     console.error("เกิดข้อผิดพลาดในการดึง Profile:", err);
-                    alert("ไม่สามารถดึงข้อมูลพิกัดผู้ใช้ได้ กรุณาลองใหม่อีกครั้ง");
+                    ssbAlert("ไม่สามารถดึงข้อมูลพิกัดผู้ใช้ได้ กรุณาลองใหม่อีกครั้ง");
                 }
             }
         }
